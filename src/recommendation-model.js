@@ -5,6 +5,7 @@ let recommendationSchema = new Schema({
     restaurationId: String,
     slogan: String,
     link: String,
-    promotionDay: String
+    promotionDay: String,
+    image: String
 });
 module.exports = mongoose.model('recommendations', recommendationSchema);
