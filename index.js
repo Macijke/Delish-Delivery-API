@@ -77,6 +77,12 @@ app.get('/order/:userId', async (req, res) => {
     res.status(200).json(user[0] ? await models.Order.find({userId: new ObjectId(req.params.userId)}) : "error");
 });
 
+app.post('/login', async (req, res) => {
+    await connectDB();
+    const user = await models.User.find({email: req.body.email, password: req.body.password});
+    res.status(200).json(user[0] ? user[0] : "error");
+});
+
 app.get('*', (req, res) => {
     res.status(200).json({'message': 'Nie znaleziono odnośnika do takiej strony!', 'code': 404});
 });
