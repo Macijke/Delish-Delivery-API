@@ -8,7 +8,7 @@ const models = {
     Order: require('./src/order-model.js'),
     Recommendation: require('./src/recommendation-model.js'),
 };
-const DateFormatted = require('./src/date-format.js');
+const getCurrentDateTime = require('./src/date-format.js');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const ObjectId = mongoose.Types.ObjectId;
@@ -58,9 +58,9 @@ app.post('/makeOrder', async (req, res) => {
     await connectDB();
     const orderDB = new models.Order({
         _id: new ObjectId(),
-        userId: new ObjectId('6586e4bd183cdec09cd5d08d'),
-        items: req.body,
-        date: DateFormatted
+        userId: new ObjectId(req.body.userId),
+        items: req.body.items,
+        date: getCurrentDateTime()
     });
     try {
         await orderDB.save();

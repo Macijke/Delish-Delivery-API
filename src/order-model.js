@@ -10,7 +10,7 @@ const orderSchema = new mongoose.Schema({
     fullPrice: Number,
     items: [
         {
-            restaurationId: {
+            restaurantId: {
                 type: String,
                 required: true
             },
