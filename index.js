@@ -60,7 +60,8 @@ app.post('/makeOrder', async (req, res) => {
         _id: new ObjectId(),
         userId: new ObjectId(req.body.userId),
         items: req.body.items,
-        date: getCurrentDateTime()
+        date: getCurrentDateTime(),
+        totalPrice: req.body.totalPrice
     });
     try {
         await orderDB.save();
@@ -71,16 +72,51 @@ app.post('/makeOrder', async (req, res) => {
     }
 });
 
-app.get('/order/:userId', async (req, res) => {
+app.get('/food/:foodId', async (req, res) => {
     await connectDB();
-    const user = await models.User.find({_id: new ObjectId(req.params.userId)});
-    res.status(200).json(user[0] ? await models.Order.find({userId: new ObjectId(req.params.userId)}) : "error");
+    res.status(200).json(await models.Menu.find({_id: new ObjectId(req.params.foodId)}));
 });
 
 app.post('/login', async (req, res) => {
     await connectDB();
     const user = await models.User.find({email: req.body.email, password: req.body.password});
     res.status(200).json(user[0] ? user[0] : "error");
+});
+
+app.get('/orderHistory/:userId', async (req, res) => {
+    await connectDB();
+    const user = await models.User.findOne({_id: new ObjectId(req.params.userId)});
+    const orders = await models.Order.find({userId: new ObjectId(req.params.userId)});
+
+    if (!orders) {
+        return res.status(404).json({ message: 'Orders not found' });
+    }
+
+    const historyOrders = [];
+
+    for (let order of orders) {
+        const items = [];
+        for (let item of order.items) {
+            const food = await models.Menu.findOne({_id: new ObjectId(item.foodId)});
+            if (food) {
+                items.push({
+                    name: food.name,
+                    price: item.price,
+                    products: food.products,
+                    meat: item.meat,
+                    sauce: item.sauce
+                });
+            }
+        }
+
+        historyOrders.push({
+            date: order.date,
+            totalPrice: order.totalPrice,
+            items: items
+        });
+    }
+
+    res.status(200).json(historyOrders);
 });
 
 app.get('*', (req, res) => {
