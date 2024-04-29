@@ -1,0 +1,83 @@
+[{
+  "_id": {
+    "$oid": "6586e4bd183cdec09cd5d08d"
+  },
+  "firstName": "Maciej",
+  "lastName": "Hosaniak",
+  "email": "maciekhosaniak@o2.pl",
+  "password": "123123123",
+  "adressCity": "Nowy Targ",
+  "adressStreet": "Krzywa",
+  "adressNumber": "14",
+  "__v": 0,
+  "adressLocal": 24
+},
+{
+  "_id": {
+    "$oid": "6586eb70dae179da70aaa4d4"
+  },
+  "firstName": "Test",
+  "lastName": "Test",
+  "email": "test@test.test",
+  "password": "123123123",
+  "adressCity": "Test",
+  "adressStreet": "Test",
+  "adressNumber": "321",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6591e78186430d01de6257d3"
+  },
+  "firstName": "Andrzej",
+  "lastName": "Duda",
+  "email": "prezydent@pl.pl",
+  "password": "DupaAndrzeja123",
+  "adressCity": "Warszawa",
+  "adressStreet": "Wiejska",
+  "adressNumber": "433",
+  "adressLocal": null,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662e609286a902d39a064d89"
+  },
+  "firstName": "Jan",
+  "lastName": "Kowalski",
+  "email": "kowalek123@op.pl",
+  "password": "123123123",
+  "adressCity": "Nowy Targ",
+  "adressStreet": "Potoczna",
+  "adressNumber": "123",
+  "adressLocal": null,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662e614503a97bba315aced1"
+  },
+  "firstName": "Tescik",
+  "lastName": "Testowy",
+  "email": "testowy@test.pl",
+  "password": "123123123",
+  "adressCity": "AWDawd",
+  "adressStreet": "qadawd",
+  "adressNumber": "234",
+  "adressLocal": 11,
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662f4ae90e8f610bdc5fc835"
+  },
+  "firstName": "Testtt",
+  "lastName": "Testttt",
+  "email": "maciekhosaniak@o2.pls",
+  "password": "123123123123123",
+  "adressCity": "xddd",
+  "adressStreet": "xddd",
+  "adressNumber": "xdddd",
+  "adressLocal": null,
+  "__v": 0
+}]

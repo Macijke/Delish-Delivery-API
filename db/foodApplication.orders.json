@@ -1,0 +1,126 @@
+[{
+  "_id": {
+    "$oid": "662d1b550154b1ff91f56f45"
+  },
+  "userId": {
+    "$oid": "6586e4bd183cdec09cd5d08d"
+  },
+  "date": "27-04-2024 17:35",
+  "totalPrice": 111,
+  "items": [
+    {
+      "restaurantId": "655735cd8969759f7a10b885",
+      "foodId": "6591a1034fea918df85c1ee4",
+      "sauce": "czosnkowy",
+      "meat": null,
+      "price": 49,
+      "_id": {
+        "$oid": "662d1b550154b1ff91f56f46"
+      }
+    },
+    {
+      "restaurantId": "655735cd8969759f7a10b885",
+      "foodId": "6591a0b44fea918df85c1ede",
+      "sauce": "ketchup",
+      "meat": null,
+      "price": 45,
+      "_id": {
+        "$oid": "662d1b550154b1ff91f56f47"
+      }
+    },
+    {
+      "restaurantId": "65526b32f51b32fd5601dff7",
+      "foodId": "65576d7f8969759f7a10b896",
+      "sauce": "mieszany",
+      "meat": "mieszane",
+      "price": 17,
+      "_id": {
+        "$oid": "662d1b550154b1ff91f56f48"
+      }
+    }
+  ],
+  "status": "Zrealizowane",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662f4c940e8f610bdc5fc86d"
+  },
+  "userId": {
+    "$oid": "6586e4bd183cdec09cd5d08d"
+  },
+  "date": "29-04-2024 09:30",
+  "totalPrice": 66,
+  "items": [
+    {
+      "restaurantId": "655735cd8969759f7a10b885",
+      "foodId": "6591a0d14fea918df85c1ee0",
+      "sauce": "ostry",
+      "meat": null,
+      "price": 48,
+      "_id": {
+        "$oid": "662f4c940e8f610bdc5fc86e"
+      }
+    },
+    {
+      "restaurantId": "65526b32f51b32fd5601dff7",
+      "foodId": "65576d928969759f7a10b897",
+      "sauce": "majonez",
+      "meat": null,
+      "price": 18,
+      "_id": {
+        "$oid": "662f4c940e8f610bdc5fc86f"
+      }
+    }
+  ],
+  "status": "Gotowe do odbioru przez kuriera",
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662f7a6cc062741ac45d5572"
+  },
+  "userId": {
+    "$oid": "6586e4bd183cdec09cd5d08d"
+  },
+  "date": "29-04-2024 12:46",
+  "totalPrice": 22,
+  "status": "W trakcie realizacji",
+  "items": [
+    {
+      "restaurantId": "65573c658969759f7a10b886",
+      "foodId": "6591a6974fea918df85c1eed",
+      "sauce": "musztardowo-miodowy",
+      "meat": null,
+      "price": 22,
+      "_id": {
+        "$oid": "662f7a6cc062741ac45d5573"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "662f7a93c062741ac45d5579"
+  },
+  "userId": {
+    "$oid": "6586e4bd183cdec09cd5d08d"
+  },
+  "date": "29-04-2024 12:46",
+  "totalPrice": 22,
+  "status": "W trakcie realizacji",
+  "items": [
+    {
+      "restaurantId": "65573c658969759f7a10b886",
+      "foodId": "6591a6974fea918df85c1eed",
+      "sauce": "musztardowo-miodowy",
+      "meat": null,
+      "price": 22,
+      "_id": {
+        "$oid": "662f7a93c062741ac45d557a"
+      }
+    }
+  ],
+  "__v": 0
+}]
