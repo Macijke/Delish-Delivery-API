@@ -1,6 +1,6 @@
 const {body, validationResult} = require('express-validator');
 
-const registerFormValidationRules = () => {
+const editFormValidationRules = () => {
     return [
         body('adressCity').notEmpty().trim().withMessage('Proszę podać miejscowość.'),
         body('adressStreet').notEmpty().trim().withMessage('Proszę podać ulicę.'),
@@ -9,7 +9,7 @@ const registerFormValidationRules = () => {
     ];
 };
 
-const editFormValidationRules = () => {
+const registerFormValidationRules = () => {
     return [
         body('firstName').isLength({min: 2}).trim().withMessage('Imię musi zawierać przynajmniej 2 znaki.'),
         body('lastName').isLength({min: 2}).trim().withMessage('Nazwisko musi zawierać przynajmniej 2 znaki.'),
@@ -34,7 +34,7 @@ const validateRegister = (req, res, next) => {
         const {firstName, lastName, email, adressCity, adressStreet, adressNumber, adressLocal} = req.body;
         let extractedErrors = {};
         errors.array().map(error => extractedErrors[error.path] = error.msg);
-        return res.render('register', {
+        return res.status(200).json({
             errors: extractedErrors,
             values: {firstName, lastName, email, adressCity, adressStreet, adressNumber, adressLocal},
         });
@@ -49,7 +49,7 @@ const validateEdit = (req, res, next) => {
         const {adressCity, adressStreet, adressNumber, adressLocal} = req.body;
         let extractedErrors = {};
         errors.array().map(error => extractedErrors[error.path] = error.msg);
-        return res.render('edit', {
+        return res.status(200).json({
             errors: extractedErrors,
             values: {adressCity, adressStreet, adressNumber, adressLocal},
         });
@@ -58,4 +58,4 @@ const validateEdit = (req, res, next) => {
     next();
 }
 
-module.exports = {validateRegister, validateEdit, registerFormValidationRules}
+module.exports = {validateRegister, validateEdit, registerFormValidationRules, editFormValidationRules}

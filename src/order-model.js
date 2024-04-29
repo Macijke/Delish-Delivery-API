@@ -8,6 +8,7 @@ const orderSchema = new mongoose.Schema({
     },
     date: String,
     totalPrice: Number,
+    status: String,
     items: [
         {
             restaurantId: {

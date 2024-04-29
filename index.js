@@ -11,6 +11,7 @@ const models = {
 const getCurrentDateTime = require('./src/date-format.js');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
+const {registerFormValidationRules, validateRegister, validateEdit, editFormValidationRules} = require("./src/validation");
 const ObjectId = mongoose.Types.ObjectId;
 const app = express();
 
@@ -61,6 +62,7 @@ app.post('/makeOrder', async (req, res) => {
         userId: new ObjectId(req.body.userId),
         items: req.body.items,
         date: getCurrentDateTime(),
+        status: 'W trakcie realizacji',
         totalPrice: req.body.totalPrice
     });
     try {
@@ -70,6 +72,19 @@ app.post('/makeOrder', async (req, res) => {
         console.error(error);
         return res.status(500).send('Błąd przy zapisie zamówienia');
     }
+});
+
+app.post('/editData', editFormValidationRules(), validateEdit, async (req, res) => {
+    await connectDB();
+    const {userId, adressCity, adressStreet, adressNumber, adressLocal} = req.body;
+    await models.User.findOneAndUpdate({_id: new ObjectId(userId)}, {
+        adressCity: adressCity,
+        adressStreet: adressStreet,
+        adressNumber: adressNumber,
+        adressLocal: adressLocal ? adressLocal : ''
+    });
+    const user = await models.User.findOne({_id: new ObjectId(userId)});
+    res.status(200).json(user);
 });
 
 app.get('/food/:foodId', async (req, res) => {
@@ -85,7 +100,6 @@ app.post('/login', async (req, res) => {
 
 app.get('/orderHistory/:userId', async (req, res) => {
     await connectDB();
-    const user = await models.User.findOne({_id: new ObjectId(req.params.userId)});
     const orders = await models.Order.find({userId: new ObjectId(req.params.userId)});
 
     if (!orders) {
@@ -104,19 +118,52 @@ app.get('/orderHistory/:userId', async (req, res) => {
                     price: item.price,
                     products: food.products,
                     meat: item.meat,
-                    sauce: item.sauce
+                    sauce: item.sauce,
+                    images: food.images
                 });
             }
         }
 
         historyOrders.push({
+            _id: order._id,
             date: order.date,
             totalPrice: order.totalPrice,
+            status: order.status,
             items: items
         });
     }
 
     res.status(200).json(historyOrders);
+});
+
+app.post('/signup', registerFormValidationRules(), validateRegister, (req, res) => {
+    const {firstName, lastName, email, password, adressCity, adressStreet, adressNumber, adressLocal} = req.body;
+    const user = new models.User({
+        _id: new ObjectId(),
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        password: password,
+        adressCity: adressCity,
+        adressStreet: adressStreet,
+        adressNumber: adressNumber,
+        adressLocal: adressLocal ? adressLocal : ''
+    });
+    user.save();
+    res.status(200).json({message: 'Użytkownik został dodany do bazy danych!'});
+});
+
+app.get('/change/status/:orderId/:status', async (req, res) => {
+    const {orderId, status} = req.params;
+    const statusMessages = {
+        1 : 'W trakcie przygotowania',
+        2 : 'Przekazane do kuriera',
+        3 : 'Zrealizowane',
+        4 : 'Anulowane'
+    }
+    await connectDB();
+    await models.Order.findOneAndUpdate({_id: new ObjectId(orderId)}, {status: statusMessages[status]});
+    res.status(200).json({message: 'Status zamówienia został zmieniony!'});
 });
 
 app.get('*', (req, res) => {
