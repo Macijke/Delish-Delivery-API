@@ -8,7 +8,15 @@ const orderSchema = new mongoose.Schema({
     },
     date: String,
     totalPrice: Number,
-    status: String,
+    status: {
+        code: Number,
+        text: String
+    },
+    courierSalary: Number,
+    courierId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Courier'
+    },
     items: [
         {
             restaurantId: {
