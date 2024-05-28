@@ -71,7 +71,7 @@ app.post('/makeOrder', async (req, res) => {
             code: 0,
             text: "W trakie przygotowania"
         },
-        totalPrice: req.body.totalPrice
+        totalPrice: req.body.totalPrice,
     });
     try {
         await orderDB.save();
@@ -115,7 +115,18 @@ app.post('/login/restaurant', async (req, res) => {
 app.post('/login/courier', async (req, res) => {
    await connectDB();
     const courier = await models.Courier.find({login: req.body.login, password: req.body.password});
-    res.status(200).json(courier[0] ? courier[0] : false);
+    if (courier[0]) {
+        res.status(200).json(courier[0]);
+    } else {
+        res.status(400).json(false);
+    }
+});
+
+app.get('/setCourierOrder/:courierId/:orderId', async (req, res) => {
+    await connectDB();
+    await models.Courier.findOneAndUpdate({_id: new ObjectId(req.params.courierId)}, {currentOrder: req.params.orderId});
+    if (req.params.orderId !== 'false') await models.Order.findOneAndUpdate({_id: new ObjectId(req.params.orderId)}, {courierId: req.params.courierId});
+    res.status(200).json({message: 'Zmieniono zamówienie kuriera!'});
 });
 
 app.get('/orderHistory/:userId', async (req, res) => {
@@ -254,8 +265,55 @@ app.get('/orderHistory/rest/:restaurantId/:orderId', async (req, res) => {
     res.status(200).json(restaurantOrder);
 });
 
-app.get('/orderHistory/courier/:courierId', async (req, res) => {
+app.get('/orderHistory/courier/:orderId', async (req, res) => {
+    await connectDB();
+    const orders = await models.Order.find({_id: new ObjectId(req.params.orderId)});
+    let courierOrder = {};
+    let restaurantAdress = '';
+    let restaurantName = '';
+    for (let order of orders) {
+        const user = await models.User.findOne({_id: new ObjectId(order.userId)});
+        if (user) {
+            const items = [];
+            for (let item of order.items) {
+                const food = await models.Menu.findOne({_id: new ObjectId(item.foodId)});
+                const restaurant = await models.Restaurant.findOne({_id: new ObjectId(item.restaurantId)});
+                if (food && restaurant) {
+                    restaurantAdress = restaurant.adress.city + ", " + restaurant.adress.street;
+                    restaurantName = restaurant.name;
+                    items.push({
+                        name: food.name,
+                        products: food.products,
+                        price: item.price,
+                        meat: item.meat,
+                        sauce: item.sauce,
+                        images: food.images
+                    });
+                }
+            }
 
+            courierOrder = {
+                _id: order._id,
+                date: order.date,
+                totalPrice: order.totalPrice,
+                status: order.status,
+                items: items,
+                restaurantAdress: restaurantAdress,
+                restaurantName: restaurantName,
+                courierSalary: order.courierSalary,
+                userAddress: {
+                    firstName: user.firstName,
+                    lastName: user.lastName,
+                    city: user.adressCity,
+                    street: user.adressStreet,
+                    number: user.adressNumber,
+                    local: user.adressLocal
+                }
+            };
+        }
+    }
+
+    res.status(200).json(courierOrder);
 });
 
 app.get('/orderHistoryCourier/', async (req, res) => {
@@ -294,6 +352,7 @@ app.get('/orderHistoryCourier/', async (req, res) => {
                 restaurantAdress: restaurantAdress,
                 restaurantName: restaurantName,
                 courierSalary: order.courierSalary,
+                courierId: order.courierId,
                 userAddress: {
                     firstName: user.firstName,
                     lastName: user.lastName,
@@ -338,6 +397,12 @@ app.get('/change/status/:orderId/:status', async (req, res) => {
     await connectDB();
     await models.Order.findOneAndUpdate({_id: new ObjectId(orderId)}, {status: {code: status, text: statusMessages[status]}});
     res.status(200).json({message: 'Status zamówienia został zmieniony!'});
+});
+
+app.get("/addEarnings/:courierId/:ernings", async (req, res) => {
+    await connectDB();
+    const courier = await models.Courier.findOneAndUpdate({_id: new ObjectId(req.params.courierId)}, {$inc: {earnings: parseInt(req.params.ernings)}});
+    res.status(200).json({message: 'Zaktualizowano zarobki kuriera!'});
 });
 
 app.get('*', (req, res) => {

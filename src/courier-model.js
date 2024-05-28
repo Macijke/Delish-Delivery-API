@@ -5,6 +5,7 @@ let courierSchema = new Schema({
     login:String,
     password:String,
     currentOrder: String,
+    earnings: Number,
     deliveredOrders: Array,
 });
 
