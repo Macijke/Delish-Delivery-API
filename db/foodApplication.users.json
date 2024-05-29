@@ -20,9 +20,9 @@
   "lastName": "Test",
   "email": "test@test.test",
   "password": "123123123",
-  "adressCity": "Test",
-  "adressStreet": "Test",
-  "adressNumber": "321",
+  "adressCity": "Nowy Targ",
+  "adressStreet": "rondo Jana Pawła II",
+  "adressNumber": "85a",
   "__v": 0
 },
 {

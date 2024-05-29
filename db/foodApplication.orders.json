@@ -39,7 +39,10 @@
       }
     }
   ],
-  "status": "Zrealizowane",
+  "status": {
+    "code": "3",
+    "text": "Zrealizowane"
+  },
   "__v": 0
 },
 {
@@ -73,7 +76,10 @@
       }
     }
   ],
-  "status": "Gotowe do odbioru przez kuriera",
+  "status": {
+    "code": "3",
+    "text": "Zrealizowane"
+  },
   "__v": 0
 },
 {
@@ -85,7 +91,10 @@
   },
   "date": "29-04-2024 12:46",
   "totalPrice": 22,
-  "status": "W trakcie realizacji",
+  "status": {
+    "code": "3",
+    "text": "Zrealizowane"
+  },
   "items": [
     {
       "restaurantId": "65573c658969759f7a10b886",
@@ -109,7 +118,10 @@
   },
   "date": "29-04-2024 12:46",
   "totalPrice": 22,
-  "status": "W trakcie realizacji",
+  "status": {
+    "code": 3,
+    "text": "Zrealizowane"
+  },
   "items": [
     {
       "restaurantId": "65573c658969759f7a10b886",
@@ -119,6 +131,335 @@
       "price": 22,
       "_id": {
         "$oid": "662f7a93c062741ac45d557a"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6648aba35505bfa91414b84e"
+  },
+  "userId": {
+    "$oid": "6586e4bd183cdec09cd5d08d"
+  },
+  "date": "18-05-2024 15:22",
+  "totalPrice": 123,
+  "status": {
+    "code": 3,
+    "text": "Zrealizowane"
+  },
+  "items": [
+    {
+      "restaurantId": "655735cd8969759f7a10b885",
+      "foodId": "6591a0d14fea918df85c1ee0",
+      "sauce": "ostry",
+      "meat": null,
+      "price": 48,
+      "_id": {
+        "$oid": "6648aba35505bfa91414b84f"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6648afd339c81859b0cb0ea0"
+  },
+  "userId": {
+    "$oid": "6586e4bd183cdec09cd5d08d"
+  },
+  "date": "18-05-2024 15:40",
+  "totalPrice": 234,
+  "status": {
+    "code": 3,
+    "text": "Zrealizowane"
+  },
+  "items": [
+    {
+      "restaurantId": "655735cd8969759f7a10b885",
+      "foodId": "6591a0d14fea918df85c1ee0",
+      "sauce": "ketchup",
+      "meat": null,
+      "price": 48,
+      "_id": {
+        "$oid": "6648afd339c81859b0cb0ea1"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6651bb78e8b1e316dbf8e4af"
+  },
+  "userId": {
+    "$oid": "6586e4bd183cdec09cd5d08d"
+  },
+  "date": "25-05-2024 12:20",
+  "totalPrice": 130,
+  "items": [
+    {
+      "restaurantId": "655735cd8969759f7a10b885",
+      "foodId": "6591a0b44fea918df85c1ede",
+      "sauce": "czosnkowy",
+      "meat": null,
+      "price": 45,
+      "_id": {
+        "$oid": "6651bb78e8b1e316dbf8e4b0"
+      }
+    },
+    {
+      "restaurantId": "655735cd8969759f7a10b885",
+      "foodId": "6591a10b4fea918df85c1ee5",
+      "sauce": "ketchup",
+      "meat": null,
+      "price": 40,
+      "_id": {
+        "$oid": "6651bb78e8b1e316dbf8e4b1"
+      }
+    },
+    {
+      "restaurantId": "655735cd8969759f7a10b885",
+      "foodId": "6591a0b44fea918df85c1ede",
+      "sauce": "ketchup",
+      "meat": null,
+      "price": 45,
+      "_id": {
+        "$oid": "6651bb78e8b1e316dbf8e4b2"
+      }
+    }
+  ],
+  "__v": 0,
+  "status": {
+    "code": 3,
+    "text": "Zrealizowane"
+  }
+},
+{
+  "_id": {
+    "$oid": "6651bbe11c129e24b60a2137"
+  },
+  "userId": {
+    "$oid": "6586e4bd183cdec09cd5d08d"
+  },
+  "date": "25-05-2024 12:22",
+  "totalPrice": 134,
+  "status": {
+    "code": 2,
+    "text": "Przekazane do kuriera"
+  },
+  "items": [
+    {
+      "restaurantId": "655735cd8969759f7a10b885",
+      "foodId": "6591a0f34fea918df85c1ee2",
+      "sauce": "ostry",
+      "meat": null,
+      "price": 44,
+      "_id": {
+        "$oid": "6651bbe11c129e24b60a2138"
+      }
+    },
+    {
+      "restaurantId": "655735cd8969759f7a10b885",
+      "foodId": "6591a0fb4fea918df85c1ee3",
+      "sauce": null,
+      "meat": null,
+      "price": 46,
+      "_id": {
+        "$oid": "6651bbe11c129e24b60a2139"
+      }
+    },
+    {
+      "restaurantId": "655735cd8969759f7a10b885",
+      "foodId": "6591a0f34fea918df85c1ee2",
+      "sauce": "ostry",
+      "meat": null,
+      "price": 44,
+      "_id": {
+        "$oid": "6651bbe11c129e24b60a213a"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6651f7ed9595028fb7300d9b"
+  },
+  "userId": {
+    "$oid": "6586eb70dae179da70aaa4d4"
+  },
+  "date": "25-05-2024 16:38",
+  "totalPrice": 32,
+  "status": {
+    "code": 3,
+    "text": "Zrealizowane"
+  },
+  "items": [
+    {
+      "restaurantId": "65526b32f51b32fd5601dff7",
+      "foodId": "65576d7f8969759f7a10b896",
+      "sauce": "łagodny",
+      "meat": "wołowo-baranie",
+      "price": 17,
+      "_id": {
+        "$oid": "6651f7ed9595028fb7300d9c"
+      }
+    },
+    {
+      "restaurantId": "65526b32f51b32fd5601dff7",
+      "foodId": "65576d9a8969759f7a10b898",
+      "sauce": null,
+      "meat": null,
+      "price": 15,
+      "_id": {
+        "$oid": "6651f7ed9595028fb7300d9d"
+      }
+    }
+  ],
+  "__v": 0,
+  "courierId": {
+    "$oid": "665596bc92d30739878a276a"
+  }
+},
+{
+  "_id": {
+    "$oid": "6654193b5abd63cf9c374611"
+  },
+  "userId": {
+    "$oid": "6586eb70dae179da70aaa4d4"
+  },
+  "date": "27-05-2024 07:25",
+  "totalPrice": 48,
+  "status": {
+    "code": 3,
+    "text": "Zrealizowane"
+  },
+  "courierSalary": 20,
+  "courierId": null,
+  "items": [
+    {
+      "restaurantId": "658de8b61a2aaa3e2bb94626",
+      "foodId": "6591ab3f4fea918df85c1ef9",
+      "sauce": "śmietanowy",
+      "meat": null,
+      "price": 25,
+      "_id": {
+        "$oid": "6654193b5abd63cf9c374612"
+      }
+    },
+    {
+      "restaurantId": "658de8b61a2aaa3e2bb94626",
+      "foodId": "6591ab8b4fea918df85c1f00",
+      "sauce": "ostry",
+      "meat": null,
+      "price": 23,
+      "_id": {
+        "$oid": "6654193b5abd63cf9c374613"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "665599c420c0a17a2d6b7249"
+  },
+  "userId": {
+    "$oid": "6586e4bd183cdec09cd5d08d"
+  },
+  "date": "28-05-2024 10:45",
+  "totalPrice": 72,
+  "status": {
+    "code": 0,
+    "text": "W trakie przygotowania"
+  },
+  "courierSalary": 20,
+  "courierId": {
+    "$oid": "665596bc92d30739878a276a"
+  },
+  "items": [
+    {
+      "restaurantId": "658de8b61a2aaa3e2bb94626",
+      "foodId": "6591ab3f4fea918df85c1ef9",
+      "sauce": "musztarda",
+      "meat": null,
+      "price": 25,
+      "_id": {
+        "$oid": "665599c420c0a17a2d6b724a"
+      }
+    },
+    {
+      "restaurantId": "658de8b61a2aaa3e2bb94626",
+      "foodId": "6591ab934fea918df85c1f01",
+      "sauce": "sos barbecue",
+      "meat": null,
+      "price": 22,
+      "_id": {
+        "$oid": "665599c420c0a17a2d6b724b"
+      }
+    },
+    {
+      "restaurantId": "658de8b61a2aaa3e2bb94626",
+      "foodId": "6591ab3f4fea918df85c1ef9",
+      "sauce": "musztarda",
+      "meat": null,
+      "price": 25,
+      "_id": {
+        "$oid": "665599c420c0a17a2d6b724c"
+      }
+    }
+  ],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "66559b0b1ef7a6c2c2f6859c"
+  },
+  "userId": {
+    "$oid": "6586eb70dae179da70aaa4d4"
+  },
+  "date": "28-05-2024 10:51",
+  "totalPrice": 46,
+  "status": {
+    "code": 3,
+    "text": "Zrealizowane"
+  },
+  "courierSalary": 22,
+  "courierId": {
+    "$oid": "6652ee701b6d31d24f1860f7"
+  },
+  "items": [
+    {
+      "restaurantId": "658dea941a2aaa3e2bb94630",
+      "foodId": "6591be3c4fea918df85c1f07",
+      "sauce": null,
+      "meat": null,
+      "price": 12,
+      "_id": {
+        "$oid": "66559b0b1ef7a6c2c2f6859d"
+      }
+    },
+    {
+      "restaurantId": "658dea941a2aaa3e2bb94630",
+      "foodId": "6591be534fea918df85c1f0a",
+      "sauce": null,
+      "meat": null,
+      "price": 15,
+      "_id": {
+        "$oid": "66559b0b1ef7a6c2c2f6859e"
+      }
+    },
+    {
+      "restaurantId": "658dea941a2aaa3e2bb94630",
+      "foodId": "6591be8f4fea918df85c1f0d",
+      "sauce": "cebula zasmażana",
+      "meat": null,
+      "price": 19,
+      "_id": {
+        "$oid": "66559b0b1ef7a6c2c2f6859f"
       }
     }
   ],

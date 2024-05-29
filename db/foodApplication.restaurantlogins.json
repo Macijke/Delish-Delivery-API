@@ -1,0 +1,16 @@
+[{
+  "_id": {
+    "$oid": "664879399f599e1e0a1f60ed"
+  },
+  "login": "dagrasso",
+  "password": "dagrasso",
+  "restaurantId": "655735cd8969759f7a10b885"
+},
+{
+  "_id": {
+    "$oid": "6651f3c5120a180686f98a30"
+  },
+  "login": "hossen",
+  "password": "hossen",
+  "restaurantId": "65526b32f51b32fd5601dff7"
+}]

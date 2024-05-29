@@ -1,0 +1,19 @@
+[{
+  "_id": {
+    "$oid": "6652ee701b6d31d24f1860f7"
+  },
+  "login": "maciek",
+  "password": "maciek",
+  "currentOrder": "false",
+  "deliveredOrders": [],
+  "earnings": 22
+},
+{
+  "_id": {
+    "$oid": "665596bc92d30739878a276a"
+  },
+  "login": "ukrainiec",
+  "password": "cwel",
+  "currentOrder": "665599c420c0a17a2d6b7249",
+  "deliveredOrders": []
+}]
